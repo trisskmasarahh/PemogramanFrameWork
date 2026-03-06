@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
     return (
         <div>
         <h1>Halaman Kategori</h1>
-        <h2>List Parameter URL:</h2>
+        <h2>Kategori:</h2>
         <p>
             {Array.isArray(slug) &&
             slug.map((item, index) => (
