@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './about.css';
+import Link from 'next/link';
+// import './about.css';
 
 export default function About() {
     
