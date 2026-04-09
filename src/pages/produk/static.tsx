@@ -22,6 +22,7 @@ export async function getStaticProps() {
     return {
         props: {
             products: response.data,
-        }
+        },
+        revalidate: 10, //opsional, untuk mengatur waktu cache data dalam detik
     }
 }
