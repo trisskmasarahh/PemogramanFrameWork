@@ -8,6 +8,7 @@ import fetcher from '../../utils/swr/fetcher';
 
 const ProdukPage = () => {
     // const [isLogin, setIsLogin] = useState(false);
+    const {push} = useRouter();
     const [products, setProducts] = useState([]);
   // console.log("products:", products);
 
