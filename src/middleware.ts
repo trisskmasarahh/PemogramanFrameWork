@@ -1,18 +1,13 @@
-import {NextResponse} from 'next/server';
-import type { NextRequest }  from 'next/server';
+import { NextResponse } from "next/server";
+import withAuth from "./middleware/withAuth";
 
-export function middleware(request: NextRequest) {
-    const isLogin = true; // Ganti dengan logika autentikasi yang sesuai
-    if (isLogin) {
+export default withAuth(
+    function middleware() {
         return NextResponse.next();
-    }
-    else{
-        return NextResponse.redirect(new URL("/auth/login", request.url));
-    }
-    //return NextResponse.redirect(new URL("/", request.url));
-    //return NextResponse.next();
-}
+    },
+    ["/profile"]
+    );
 
-export const config = {
-    matcher: ["/produk", "/about"],
-};
+    export const config = {
+    matcher: ["/profile"],
+    };
