@@ -31,7 +31,6 @@ const [error, setError] = useState("");
         setIsLoading(false);
         return;
     }
-
     const response = await fetch("/api/register", {
         method: "POST",
         headers: {

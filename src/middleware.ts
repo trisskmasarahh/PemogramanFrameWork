@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import withAuth from "./middleware/withAuth";
 
-export default withAuth(
-    function middleware() {
-        return NextResponse.next();
-    },
-    ["/profile"]
-    );
+export function mainMiddleware(request: NextRequest) {
+    return NextResponse.next();
+}
 
-    export const config = {
-    matcher: ["/profile"],
-    };
+export default withAuth(mainMiddleware, ["/profile", "/admin"]);
+
+export const config = {
+    matcher: ["/profile/:path*", "/admin/:path*"],
+};
