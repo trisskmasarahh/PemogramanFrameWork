@@ -1,10 +1,16 @@
-import styles from '@/styles/404.module.scss';
-import Link from "next/link";
-
-export default function About() {
+const AboutPage = () => {
     return (
         <div>
-            <head>
+            <h1 data-testid="title">About Page</h1>
+            </div>
+    );
+};
+
+    export default AboutPage;
+            
+    
+    
+    {/* <head>
                 <title>Tentang Saya</title>
             </head>
             <div className="flex flex-col items-center justify-center h-screen">
@@ -21,7 +27,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
+        </div> */}
+    
+
 
