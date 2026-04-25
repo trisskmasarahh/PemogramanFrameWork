@@ -116,11 +116,33 @@ setError("wrong email or password");
                             className={style.login__form__item__input}
                         />
                     </div>
-                    <button 
-                    type="submit" 
+                    <button
+                    type="submit"
                     className={style.login__form__item__button}
-                    disabled={isLoading}>
-                        {isLoading ? "Loading..." : "login"}
+                    disabled={isLoading}
+                    >
+                        {isLoading ? "Loading..." : "Login"}
+                    </button>{" "}
+
+                    <br />
+                    <br />
+
+                    <button 
+                    onClick={()=> signIn("google", { callbackUrl, redirect: false})}
+                    className={style.login__form__item__button}
+                    disabled={isLoading}
+                    >
+                        {isLoading ? "Loading..." : "sign in with google"}
+                    </button>
+                    <br />
+                    <br />
+                    
+                    <button 
+                    onClick={()=> signIn("github", { callbackUrl, redirect: false})}
+                    className={style.login__form__item__button}
+                    disabled={isLoading}
+                    >
+                        {isLoading ? "Loading..." : "sign in with github"}
                     </button>
 
                 </form>
