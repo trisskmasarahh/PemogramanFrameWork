@@ -17,13 +17,13 @@ export default halamanProdukServer;
 //fungsi getServersideProps akan dipanggil setiap kali halaman ini diakses, dan akan mengambil data produk dari API sebelum merender halaman.
 
 export async function getServerSideProps() {
-    const res = await fetch("http://localhost:3000/api/produk");
-    const data = await res.json();
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/produk`);
+    const response = await res.json();
     // console.log("data produk yang diambil dari API:", respone);
 
     return {
         props: {
-            products: data.data, // pastikan untuk memberikan nilai default jika data tidak tersedia
+            products: response.data, // pastikan untuk memberikan nilai default jika data tidak tersedia
         },
     };
 }
