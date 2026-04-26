@@ -1,17 +1,12 @@
 import type { AppProps } from 'next/app';
 import { SessionProvider } from "next-auth/react";
-import Script from 'next/script'; // 1. Import Script
-import dynamic from 'next/dynamic'; // 2. Import dynamic
-
-// 3. Terapkan Dynamic Import pada komponen Layout
-const AppShell = dynamic(() => import('@/components/layouts/Appshell'), {
-  ssr: true, // Tetap true karena AppShell biasanya berisi struktur navigasi
-});
+import Script from 'next/script'; 
+import AppShell from '@/components/layouts/Appshell'; // Import statis (normal)
 
 export default function App({ 
   Component, 
   pageProps: { session, ...pageProps },
-  }: AppProps) {
+}: AppProps) {
   return (
     <SessionProvider session={session}>
       {/* 4. Implementasi Google Analytics */}
@@ -28,9 +23,9 @@ export default function App({
         `}
       </Script>
 
-        <AppShell>
-          <Component {...pageProps} />
-        </AppShell>
-      </SessionProvider>
+      <AppShell>
+        <Component {...pageProps} />
+      </AppShell>
+    </SessionProvider>
   );
 }
